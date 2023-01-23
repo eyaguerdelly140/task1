@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task 3</title>
+</head>
+<body>
+    <h1>List App</h1>
+    <input id="inputText" type="text" >
+    <button class="buttonInput">Ajouter a la liste</button>
+    <ul></ul>
+
+</body>
+<script>
+    let button=document.querySelector(".button");
+    let input=document.getElementById('inputText');
+    
+    button.addEventListener("click",handleAjout);
+    input.addEventListener("keyup",(e)=>{
+
+          if (e.keyCode===13)
+          {
+            handleChange();
+            
+          }
+        });
+
+    
+    function handleChange(e){
+        button.textContent=`Ajouter ${input.value} a la liste`;
+    }  
+    function handleAjout(e){
+        let ul=document.querySelector("ul");
+        let inputText=document.createTextNode(input.value);
+        let newList=document.createElement('li');
+        newList.className='list-item';
+        newList.appendChild(inputText); 
+        ul.appendChild(newlist);
+        
+
+    }    
+
+ </script>   
+</html>
